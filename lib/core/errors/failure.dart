@@ -28,3 +28,10 @@ class ServerFailure extends Failure {
   // ServerFailure.fromException(APIException exception)
   //     : this(message: exception.message, statusCode: exception.statusCode);
 }
+
+class CacheFailure extends Failure {
+  CacheFailure({required super.message, required super.statusCode});
+
+  CacheFailure.fromException(CacheException exception)
+      : this(message: exception.message, statusCode: exception.statusCode);
+}
