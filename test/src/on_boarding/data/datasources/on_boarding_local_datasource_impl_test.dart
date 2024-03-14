@@ -27,12 +27,12 @@ void main() {
     });
 
     test(
-        'WHEN an error occurs while caching the data THEN throw a [CacheException]',
-        () async {
+        'WHEN an error occurs while caching the data'
+        ' THEN throw a [CacheException] ', () async {
       when(() => sharedPreferences.setBool(any(), any()))
           .thenThrow(Exception());
 
-      var methodCall = localDatasource.cacheFirstTimer;
+      final methodCall = localDatasource.cacheFirstTimer;
 
       expect(methodCall, throwsA(isA<CacheException>()));
       verify(() => sharedPreferences.setBool(kFirstTimerKey, false)).called(1);
@@ -46,7 +46,7 @@ void main() {
         'return the right data if the it exists', () async {
       when(() => sharedPreferences.getBool(any())).thenReturn(true);
 
-      var result = await localDatasource.checkIfUserIsFirstTimer();
+      final result = await localDatasource.checkIfUserIsFirstTimer();
 
       verify(() => sharedPreferences.getBool(kFirstTimerKey)).called(1);
       expect(result, true);
@@ -56,7 +56,7 @@ void main() {
     test('MUST return true when there is no data cached', () async {
       when(() => sharedPreferences.getBool(any())).thenReturn(null);
 
-      var result = await localDatasource.checkIfUserIsFirstTimer();
+      final result = await localDatasource.checkIfUserIsFirstTimer();
 
       verify(() => sharedPreferences.getBool(kFirstTimerKey)).called(1);
       expect(result, true);
@@ -68,7 +68,7 @@ void main() {
         'retrieving the cached data', () async {
       when(() => sharedPreferences.getBool(any())).thenThrow(Exception());
 
-      var methodCall = localDatasource.checkIfUserIsFirstTimer;
+      final methodCall = localDatasource.checkIfUserIsFirstTimer;
 
       expect(methodCall, throwsA(isA<CacheException>()));
       verify(() => sharedPreferences.getBool(kFirstTimerKey)).called(1);

@@ -21,7 +21,7 @@ void main() {
       'THEN return a Left containing a ServerFailure', () async {
     when(() => onBoardingRepository.cacheFirstTimer()).thenAnswer(
       (_) async => Left(
-        ServerFailure(message: "Unknown Error Ocurred", statusCode: 500),
+        ServerFailure(message: 'Unknown Error Ocurred', statusCode: 500),
       ),
     );
 
@@ -31,7 +31,7 @@ void main() {
       result,
       equals(
         Left<Failure, dynamic>(
-          ServerFailure(message: "Unknown Error Ocurred", statusCode: 500),
+          ServerFailure(message: 'Unknown Error Ocurred', statusCode: 500),
         ),
       ),
     );

@@ -1,9 +1,8 @@
 import 'package:education_app/core/errors/exceptions.dart';
+import 'package:education_app/src/on_boarding/data/datasources/on_boarding_local_datasource.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'on_boarding_local_datasource.dart';
-
-const kFirstTimerKey = "first_timer";
+const kFirstTimerKey = 'first_timer';
 
 class OnBoardingLocalDatasourceImpl implements OnBoardingLocalDatasource {
   OnBoardingLocalDatasourceImpl(this._sharedPreferences);

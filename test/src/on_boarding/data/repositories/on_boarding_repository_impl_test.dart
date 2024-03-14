@@ -25,8 +25,8 @@ void main() {
 
   group('cacheFirstTimer tests', () {
     test(
-        'WHEN [localDatasource.cacheFirstTimer()] call is successfull THEN return a [Rigth(null)]',
-        () async {
+        'WHEN [localDatasource.cacheFirstTimer()] call is successfull '
+        'THEN return a [Rigth(null)]', () async {
       when(() => localDatasource.cacheFirstTimer())
           .thenAnswer((_) async => Future.value());
 
@@ -38,17 +38,21 @@ void main() {
     });
 
     test(
-        'WHEN [localDatasource.cacheFirstTimer()] call is unsuccessfull THEN return a [Left(CacheFailure)]',
-        () async {
+        'WHEN [localDatasource.cacheFirstTimer()] call is unsuccessfull '
+        ' THEN return a [Left(CacheFailure)]', () async {
       when(() => localDatasource.cacheFirstTimer())
-          .thenThrow(const CacheException(message: "Insufficient storage"));
+          .thenThrow(const CacheException(message: 'Insufficient storage'));
 
       final result = await repo.cacheFirstTimer();
 
       expect(
-          result,
-          equals(Left<CacheFailure, void>(
-              CacheFailure(message: "Insufficient storage", statusCode: 500))));
+        result,
+        equals(
+          Left<CacheFailure, void>(
+            CacheFailure(message: 'Insufficient storage', statusCode: 500),
+          ),
+        ),
+      );
       verify(() => localDatasource.cacheFirstTimer()).called(1);
       verifyNoMoreInteractions(localDatasource);
     });

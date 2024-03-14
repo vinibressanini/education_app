@@ -1,12 +1,7 @@
+import 'package:education_app/core/res/media_res.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/res/media_res.dart';
-
 class PageContent extends Equatable {
-  final String image;
-  final String title;
-  final String description;
-
   const PageContent({
     required this.image,
     required this.title,
@@ -16,7 +11,7 @@ class PageContent extends Equatable {
   const PageContent.first()
       : this(
           image: MediaRes.casualReading,
-          title: "Brand new curriculum",
+          title: 'Brand new curriculum',
           description:
               'This is the first online education platform designed by the '
               "world's best professors",
@@ -25,7 +20,7 @@ class PageContent extends Equatable {
   const PageContent.second()
       : this(
           image: MediaRes.casualLife,
-          title: "Brand a fun atmosphere",
+          title: 'Brand a fun atmosphere',
           description:
               'This is the first online education platform designed by the '
               "world's best professors",
@@ -33,11 +28,14 @@ class PageContent extends Equatable {
   const PageContent.third()
       : this(
           image: MediaRes.casualMeditationScience,
-          title: "Easy to join the lesson",
+          title: 'Easy to join the lesson',
           description:
               'This is the first online education platform designed by the '
               "world's best professors",
         );
+  final String image;
+  final String title;
+  final String description;
 
   @override
   List<Object?> get props => [image, title, description];

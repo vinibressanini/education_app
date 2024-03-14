@@ -4,7 +4,7 @@ import 'package:education_app/core/errors/failure.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/on_boarding/data/datasources/on_boarding_local_datasource.dart';
 
-import '../../domain/repositories/on_boarding_repository.dart';
+import 'package:education_app/src/on_boarding/domain/repositories/on_boarding_repository.dart';
 
 class OnBoardingRepositoryImpl implements OnBoardingRepository {
   OnBoardingRepositoryImpl(this._localDatasource);
@@ -23,7 +23,7 @@ class OnBoardingRepositoryImpl implements OnBoardingRepository {
 
   @override
   ResultFuture<bool> checkIfUserIsFirstTimer() async {
-    // TODO: implement checkIfUserIsFirstTimer
+    // TODO(vinibressanini): implement checkIfUserIsFirstTimer
     throw UnimplementedError();
   }
 }
