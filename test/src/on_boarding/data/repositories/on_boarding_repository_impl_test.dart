@@ -19,7 +19,7 @@ void main() {
     repo = OnBoardingRepositoryImpl(localDatasource);
   });
 
-  test('[localDatasource] should be a subclass of [OnBoardingRepository]', () {
+  test('[repo] should be a subclass of [OnBoardingRepository]', () {
     expect(repo, isA<OnBoardingRepository>());
   });
   group('cacheFirstTimer tests', () {
