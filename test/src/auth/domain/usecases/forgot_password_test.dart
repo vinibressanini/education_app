@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:education_app/src/auth/repositories/auth_repo.dart';
-import 'package:education_app/src/auth/usecases/forgot_password.dart';
+import 'package:education_app/src/auth/domain/repositories/auth_repo.dart';
+import 'package:education_app/src/auth/domain/usecases/forgot_password.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
