@@ -92,8 +92,8 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
         password: password,
       );
 
-      await userData.user!.updateDisplayName(fullName);
-      await userData.user!.updatePhotoURL(kDefaultAvatar);
+      await userData.user?.updateDisplayName(fullName);
+      await userData.user?.updatePhotoURL(kDefaultAvatar);
 
       await _setUserData(_authClient.currentUser!, email);
     } on FirebaseAuthException catch (e) {
@@ -118,7 +118,7 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
     try {
       switch (action) {
         case UpdateUserAction.password:
-          final isLogged = _authClient.currentUser?.email == null;
+          final isLogged = _authClient.currentUser?.email != null;
 
           if (!isLogged) {
             throw const ServerException(
