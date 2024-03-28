@@ -389,8 +389,6 @@ void main() {
 
         when(() => user.email).thenReturn(tEmail);
 
-        //debugPrint(userCredential.user!.email
-
         await datasource.updateUser(
           action: UpdateUserAction.password,
           userData: jsonEncode(
@@ -411,6 +409,24 @@ void main() {
             .get();
 
         expect(userFirestoreDoc.data()!['password'], null);
+      },
+    );
+
+    test(
+      'should throw a [ServerException] WHEN any if any of the '
+      '[UpdateUserAction] thrown a [FirebaseAuthException]',
+      () async {
+        when(() => authClient.currentUser!.updateEmail(tEmail))
+            .thenThrow(tFirebaseAuthException);
+
+        final call = datasource.updateUser;
+
+        expect(
+          call(action: UpdateUserAction.email, userData: tEmail),
+          throwsA(isA<ServerException>()),
+        );
+
+        verify(() => authClient.currentUser!.updateEmail(tEmail));
       },
     );
   });

@@ -3,7 +3,6 @@ import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/src/auth/domain/entities/local_user.dart';
 
 abstract class AuthRepo {
-  const AuthRepo();
   ResultFuture<void> forgotPassword({required String email});
 
   ResultFuture<LocalUser> singIn({
