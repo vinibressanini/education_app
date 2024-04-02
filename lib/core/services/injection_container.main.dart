@@ -54,6 +54,7 @@ Future<void> _initOnBoarding() async {
       () => OnBoardingRepositoryImpl(sl()),
     )
     ..registerLazySingleton<OnBoardingLocalDatasource>(
-      () => OnBoardingLocalDatasourceImpl(prefs),
-    );
+      () => OnBoardingLocalDatasourceImpl(sl()),
+    )
+    ..registerLazySingleton<SharedPreferences>(() => prefs);
 }

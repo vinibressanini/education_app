@@ -27,6 +27,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final pageController = PageController();
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green,
@@ -37,7 +43,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             if (state is OnBoardingStatus && !state.isUserFirstTimer) {
               Navigator.pushReplacementNamed(context, '/home');
             } else if (state is UserCached) {
-              // TODO(UserCachedHandler): Handle UserCached state
+              Navigator.pushReplacementNamed(context, '/');
             }
           },
           builder: (context, state) {
