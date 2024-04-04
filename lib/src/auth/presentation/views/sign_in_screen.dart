@@ -6,6 +6,7 @@ import 'package:education_app/core/res/media_res.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/src/auth/data/models/local_user_model.dart';
 import 'package:education_app/src/auth/presentation/bloc/auth_bloc.dart';
+import 'package:education_app/src/auth/presentation/views/sign_up_screen.dart';
 import 'package:education_app/src/auth/presentation/widgets/sign_in_form.dart';
 import 'package:education_app/src/dashboard/presentation/views/dashboard_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -71,8 +72,11 @@ class _SignInScreenState extends State<SignInScreen> {
                           baseline: 100,
                           baselineType: TextBaseline.alphabetic,
                           child: TextButton(
-                            onPressed: () {},
                             child: const Text('Register account?'),
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed(SignUpScreen.routeName);
+                            },
                           ),
                         ),
                       ],
@@ -105,7 +109,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         if (formKey.currentState!.validate()) {
                           context.read<AuthBloc>().add(
                                 SignInEvent(
-                                  email: emailController.text,
+                                  email: emailController.text.trim(),
                                   password: passwordController.text.trim(),
                                 ),
                               );
