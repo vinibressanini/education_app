@@ -10,6 +10,8 @@ import 'package:education_app/src/on_boarding/data/datasources/on_boarding_local
 import 'package:education_app/src/on_boarding/presentation/cubits/cubit/on_boarding_cubit.dart';
 import 'package:education_app/src/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart'
+    show ForgotPasswordScreen;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,6 +65,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case DashboardScreen.routeName:
       return _pageBuilder(
         (_) => const DashboardScreen(),
+        settings: settings,
+      );
+    case '/forgot-password':
+      return _pageBuilder(
+        (_) => const ForgotPasswordScreen(),
         settings: settings,
       );
     default:
