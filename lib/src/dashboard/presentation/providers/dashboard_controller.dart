@@ -8,9 +8,34 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
-          child: const PersistentView(),
+          child: const Placeholder(),
         ),
       ),
+      child: const PersistentView(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => TabNavigator(
+        TabItem(
+          child: const Placeholder(),
+        ),
+      ),
+      child: const PersistentView(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => TabNavigator(
+        TabItem(
+          child: const Placeholder(),
+        ),
+      ),
+      child: const PersistentView(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => TabNavigator(
+        TabItem(
+          child: const Placeholder(),
+        ),
+      ),
+      child: const PersistentView(),
     ),
   ];
 
