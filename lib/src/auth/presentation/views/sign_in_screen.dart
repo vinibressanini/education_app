@@ -95,27 +95,27 @@ class _SignInScreenState extends State<SignInScreen> {
                         },
                       ),
                     ),
+                    const SizedBox(height: 10),
                     if (state is AuthLoading)
                       const Center(
                         child: CircularProgressIndicator(),
                       )
                     else
-                      const SizedBox(height: 20),
-                    RoundedButton(
-                      label: 'Sign In',
-                      onPressed: () {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                        FirebaseAuth.instance.currentUser?.reload();
-                        if (formKey.currentState!.validate()) {
-                          context.read<AuthBloc>().add(
-                                SignInEvent(
-                                  email: emailController.text.trim(),
-                                  password: passwordController.text.trim(),
-                                ),
-                              );
-                        }
-                      },
-                    )
+                      RoundedButton(
+                        label: 'Sign In',
+                        onPressed: () {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          FirebaseAuth.instance.currentUser?.reload();
+                          if (formKey.currentState!.validate()) {
+                            context.read<AuthBloc>().add(
+                                  SignInEvent(
+                                    email: emailController.text.trim(),
+                                    password: passwordController.text.trim(),
+                                  ),
+                                );
+                          }
+                        },
+                      )
                   ],
                 ),
               ),
