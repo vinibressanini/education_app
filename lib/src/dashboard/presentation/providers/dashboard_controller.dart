@@ -1,5 +1,6 @@
 import 'package:education_app/core/common/app/providers/tab_navigator.dart';
 import 'package:education_app/core/common/views/persistent_view.dart';
+import 'package:education_app/src/profile/presentation/views/profile_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,11 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
-          child: const Placeholder(),
+          child: const Placeholder(
+            child: Center(
+              child: Text('HOME TAB'),
+            ),
+          ),
         ),
       ),
       child: const PersistentView(),
@@ -16,7 +21,11 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
-          child: const Placeholder(),
+          child: const Placeholder(
+            child: Center(
+              child: Text('DOCUMENTS TAB'),
+            ),
+          ),
         ),
       ),
       child: const PersistentView(),
@@ -24,7 +33,11 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
-          child: const Placeholder(),
+          child: const Placeholder(
+            child: Center(
+              child: Text('CHAT TAB'),
+            ),
+          ),
         ),
       ),
       child: const PersistentView(),
@@ -32,7 +45,7 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
-          child: const Placeholder(),
+          child: const ProfileScreen(),
         ),
       ),
       child: const PersistentView(),
@@ -47,5 +60,6 @@ class DashboardController extends ChangeNotifier {
   void changeIndex(int index) {
     if (index == _currentIndex) return;
     _currentIndex = index;
+    notifyListeners();
   }
 }
