@@ -1,3 +1,4 @@
+import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/src/auth/data/models/local_user_model.dart';
 import 'package:education_app/src/dashboard/presentation/providers/dashboard_controller.dart';
@@ -31,6 +32,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       stream: DashboardUtils.userDataStream,
       builder: (_, snapshot) {
         if (snapshot.hasData) {
+          context.read<UserProvider>().user = snapshot.data;
           return Consumer<DashboardController>(
             builder: (_, controller, __) {
               return Scaffold(
