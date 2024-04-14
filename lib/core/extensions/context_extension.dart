@@ -18,4 +18,6 @@ extension ContextExt on BuildContext {
   TabNavigator get tabNavigator => read<TabNavigator>();
 
   void push(TabItem page) => tabNavigator.push(page);
+
+  void pop() => tabNavigator.pop();
 }

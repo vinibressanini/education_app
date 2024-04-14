@@ -18,7 +18,7 @@ class ProfileInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(5),
+      margin: const EdgeInsets.all(7),
       height: 84,
       width: 156,
       decoration: BoxDecoration(

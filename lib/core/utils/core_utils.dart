@@ -9,6 +9,7 @@ class CoreUtils {
       ..removeCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
+          elevation: 8,
           content: Text(
             message,
             style: const TextStyle(
