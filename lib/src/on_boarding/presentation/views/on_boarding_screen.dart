@@ -75,7 +75,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       curve: Curves.easeInOut,
                     ),
                   ),
-                )
+                ),
               ],
             );
           },

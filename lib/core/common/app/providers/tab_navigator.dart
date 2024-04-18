@@ -11,6 +11,8 @@ class TabNavigator extends ChangeNotifier {
 
   final List<TabItem> _naviagationStack = [];
 
+  int get navigationStackLength => _naviagationStack.length;
+
   TabItem get currentItem => _naviagationStack.last;
 
   void push(TabItem page) {
