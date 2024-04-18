@@ -95,7 +95,7 @@ class ProfileAppbar extends StatelessWidget implements PreferredSizeWidget {
                     navigator.pushNamedAndRemoveUntil('/', (route) => false),
                   );
                 },
-              )
+              ),
             ];
           },
         ),
