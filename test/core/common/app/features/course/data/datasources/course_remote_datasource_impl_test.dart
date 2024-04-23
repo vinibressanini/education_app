@@ -51,13 +51,13 @@ void main() {
     test('SHOULD add the given course to the firestore collection', () async {
       await datasource.addCourse(tCourse);
 
-      final courseData = await firestore.collection('course').get();
+      final courseData = await firestore.collection('courses').get();
       expect(courseData.docs.length, 1);
 
       final courseRef = courseData.docs.first;
       expect(courseRef.data()['id'], courseRef.id);
 
-      final groupData = await firestore.collection('group').get();
+      final groupData = await firestore.collection('groups').get();
       expect(groupData.docs.length, 1);
 
       final groupRef = groupData.docs.first;
@@ -65,6 +65,27 @@ void main() {
 
       expect(courseRef.data()['groupId'], groupRef.id);
       expect(groupRef.data()['courseId'], courseRef.id);
+    });
+  });
+
+  group('get courses', () {
+    test('SHOULD add the given course to the firestore collection', () async {
+      final firstDate = DateTime.now();
+      final secondDate = DateTime.now().add(const Duration(days: 1));
+
+      final expectedCourses = [
+        CourseModel.empty().copyWith(createdAt: firstDate),
+        CourseModel.empty()
+            .copyWith(createdAt: secondDate, title: 'Second Course'),
+      ];
+
+      for (final course in expectedCourses) {
+        await firestore.collection('courses').add(course.toMap());
+      }
+
+      final result = await datasource.getCourses();
+
+      expect(result, expectedCourses);
     });
   });
 }
