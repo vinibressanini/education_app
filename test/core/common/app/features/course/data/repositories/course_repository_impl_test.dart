@@ -94,7 +94,7 @@ void main() {
         ),
       );
 
-      verify(() => datasource.addCourse(any())).called(1);
+      verify(() => datasource.getCourses()).called(1);
       verifyNoMoreInteractions(datasource);
     });
   });
