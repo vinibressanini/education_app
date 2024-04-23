@@ -1,0 +1,10 @@
+{
+    "id": "id",
+    "title": "title",
+    "numberOfExams": 0,
+    "numberOfMaterials": 0,
+    "numberOfVideos": 0,
+    "groupId": "groupId",
+    "image": "image",
+    "description": "description"
+}
