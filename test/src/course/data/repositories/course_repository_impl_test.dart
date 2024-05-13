@@ -1,13 +1,11 @@
-import 'dart:math';
-
 import 'package:dartz/dartz.dart';
+import 'package:education_app/core/errors/exceptions.dart';
+import 'package:education_app/core/errors/failure.dart';
 import 'package:education_app/src/course/data/datasources/course_remote_datasource.dart';
 import 'package:education_app/src/course/data/models/course_model.dart';
 import 'package:education_app/src/course/data/repositories/course_repository_impl.dart';
 import 'package:education_app/src/course/domain/entities/course.dart';
 import 'package:education_app/src/course/domain/repositories/course_repo.dart';
-import 'package:education_app/core/errors/exceptions.dart';
-import 'package:education_app/core/errors/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

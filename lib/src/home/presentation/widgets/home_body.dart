@@ -1,7 +1,6 @@
 import 'package:education_app/core/common/app/providers/course_of_the_day_provider.dart';
 import 'package:education_app/core/common/views/loading_screen.dart';
 import 'package:education_app/core/common/widgets/not_found_text.dart';
-import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/src/course/presentation/cubit/course_cubit.dart';
 import 'package:flutter/material.dart';
@@ -57,8 +56,16 @@ class _HomeBodyState extends State<HomeBody> {
               (a, b) => a.updatedAt.compareTo(b.updatedAt),
             );
 
-          return ListView(
+          return ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: courses.length,
+            itemBuilder: (_, index) {
+              return Card(
+                child: Center(
+                  child: Text(courses[index].title),
+                ),
+              );
+            },
           );
         }
       },

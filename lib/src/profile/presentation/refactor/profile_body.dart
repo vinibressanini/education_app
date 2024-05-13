@@ -1,8 +1,14 @@
 import 'package:education_app/core/common/app/providers/user_provider.dart';
+import 'package:education_app/core/common/widgets/admin_button.dart';
 import 'package:education_app/core/res/colours.dart';
 import 'package:education_app/core/res/media_res.dart';
+import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/core/utils/core_utils.dart';
+import 'package:education_app/src/course/presentation/cubit/course_cubit.dart';
+import 'package:education_app/src/course/presentation/widgets/add_course_sheet.dart';
 import 'package:education_app/src/profile/presentation/widgets/profile_info_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 
@@ -70,6 +76,21 @@ class _ProfileBodyState extends State<ProfileBody> {
             ),
           ],
         ),
+        if (user.isAdmin) ...[
+          AdminButton(
+            icon: IconlyLight.paper_upload,
+            label: 'Add Course',
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                builder: (_) => BlocProvider(
+                  create: (_) => sl<CourseCubit>(),
+                  child: const AddCourseSheet(),
+                ),
+              );
+            },
+          ),
+        ],
       ],
     );
   }
