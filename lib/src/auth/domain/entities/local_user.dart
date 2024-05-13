@@ -25,6 +25,8 @@ class LocalUser extends Equatable {
     );
   }
 
+  bool get isAdmin => email == 'vinimarcus41@gmail.com';
+
   final String uid;
   final String email;
   final String? profilePic;

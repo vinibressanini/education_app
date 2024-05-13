@@ -5,6 +5,27 @@ final sl = GetIt.instance;
 Future<void> init() async {
   await _initOnBoarding();
   await _initAuth();
+  await _initCourse();
+}
+
+Future<void> _initCourse() async {
+  sl
+    ..registerFactory<CourseCubit>(
+      () => CourseCubit(
+        addCourse: sl(),
+        getCourses: sl(),
+      ),
+    )
+    ..registerLazySingleton<AddCourse>(() => AddCourse(sl()))
+    ..registerLazySingleton<GetCourses>(() => GetCourses(sl()))
+    ..registerLazySingleton<CourseRepo>(() => CourseRepositoryImpl(sl()))
+    ..registerLazySingleton<CourseRemoteDatasource>(
+      () => CourseRemoteDatasourceImpl(
+        auth: sl(),
+        dbClient: sl(),
+        storage: sl(),
+      ),
+    );
 }
 
 Future<void> _initAuth() async {

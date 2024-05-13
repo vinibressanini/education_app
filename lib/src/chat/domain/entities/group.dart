@@ -1,4 +1,3 @@
-import 'package:education_app/core/utils/typedefs.dart';
 import 'package:equatable/equatable.dart';
 
 class Group extends Equatable {
@@ -21,17 +20,6 @@ class Group extends Equatable {
       members: [],
     );
   }
-
-  DataMap toMap() => {
-        'id': id,
-        'name': name,
-        'courseId': courseId,
-        'members': members,
-        'lastMessage': lastMessage,
-        'groupImageUrl': groupImageUrl,
-        'lastMessageSenderName': lastMessageSenderName,
-        'lastMessageTimestamp': lastMessageTimestamp,
-      };
 
   @override
   List<String> get props => [id, name, courseId];

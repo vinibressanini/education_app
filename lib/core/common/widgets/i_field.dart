@@ -32,7 +32,7 @@ class IField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       minLines: 1,
-      maxLines: 5,      
+      maxLines: obscureText ? 1 : 5,
       controller: controller,
       validator: overrideValidator
           ? validator
