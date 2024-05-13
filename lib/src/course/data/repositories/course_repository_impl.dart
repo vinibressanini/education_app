@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:education_app/src/course/data/datasources/course_remote_datasource.dart';
-import 'package:education_app/src/course/domain/entities/course.dart';
-import 'package:education_app/src/course/domain/repositories/course_repo.dart';
 import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/core/errors/failure.dart';
 import 'package:education_app/core/utils/typedefs.dart';
+import 'package:education_app/src/course/data/datasources/course_remote_datasource.dart';
+import 'package:education_app/src/course/domain/entities/course.dart';
+import 'package:education_app/src/course/domain/repositories/course_repo.dart';
 
 class CourseRepositoryImpl implements CourseRepo {
   const CourseRepositoryImpl(this._datasource);
